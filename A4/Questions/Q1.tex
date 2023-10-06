@@ -1,0 +1,54 @@
+\section{}
+At a point in a loaded body, the stress relative to an x, y, and z coordinate system are 
+
+\begin{equation}
+    \sigma = 
+    \begin{bmatrix}
+        40 & 40 & 30 \\
+        40 & 20 & 0 \\
+        30 & 0 & 20
+    \end{bmatrix}
+    %units are mpa
+    \unit{MPa} \nonumber
+\end{equation} 
+
+Determine the normal stress $\sigma$ and the shearing stress $\tau$ on a plane whose outward normal is
+oriented at angles of 40$^\circ$, 75$^\circ$, and 54$^\circ$ with the x, y, and z axes, respectively.
+
+First calculate the normal vector:
+\begin{align}
+    \hat{n} &= 
+    \begin{bmatrix}
+        \cos(40^\circ) \\
+        \cos(75^\circ) \\
+        \cos(54^\circ)
+    \end{bmatrix} \nonumber 
+\end{align}
+
+Then calculate the normal stress:
+\begin{align}
+    \sigma_n &= \hat{n}^T \sigma \hat{n} \nonumber \\
+    &= 
+    \begin{bmatrix}
+        \cos(40^\circ) & \cos(75^\circ) & \cos(54^\circ)
+    \end{bmatrix}
+    \begin{bmatrix}
+        40 & 40 & 30 \\
+        40 & 20 & 0 \\
+        30 & 0 & 20
+    \end{bmatrix}
+    \begin{bmatrix}
+        \cos(40^\circ) \\
+        \cos(75^\circ) \\
+        \cos(54^\circ)
+    \end{bmatrix} \nonumber \\
+    &= \boxed{\qty{74.6}{MPa}} \nonumber
+\end{align}
+
+To determine shearing stress magnitude, the following equation is used:
+\begin{align}
+    \tau &= \sqrt{p_{x}^2 + p_{y}^2 + p_{z}^2 - \sigma_n^2} \nonumber \\
+    & = ((\sigma\hat{n})^T (\sigma\hat{n}) - \sigma_n^2)^{1/2} \nonumber \\
+    & = (5926.856 - 5565.16)^{1/2} \nonumber \\
+    &= \boxed{\qty{19.02}{MPa}} \nonumber
+\end{align}
