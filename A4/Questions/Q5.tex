@@ -1,49 +1,50 @@
 \section{}
-The displacement field and strain distribution in a member have the form
+A solid sphere of diameter $d$ experiences a uniform pressure of $p$. Given: $d = \qty{250}{\milli\meter}$, 
+$p = \qty{160}{\mega\pascal}$, $E = \qty{70}{\giga\pascal}$, and $\nu = 0.3$. Determine,
+
+\begin{enumerate}[label=(\alph*)]
+    \item the decrease in volume of the sphere $\Delta V$.
+    \item the decrease in circumference of the sphere.
+\end{enumerate}
+
+Note: Volume of a sphere is $V = \frac{4}{3}\pi r^3$, where $r = \frac{d}{2}$.
+
+
+Bulk modulus will be used to find the change in volume of the sphere. The bulk modulus is given by:
 \begin{align*}
-    \epsilon_{x} &= a_0 + a_1 y^2 + y^4 \\
-    \epsilon_{y} &= b_0 + b_1 x^2 + x^4 \\
-    \gamma_{xy} &= c_0 + c_1xy(x^2+ y^2 + c_2) = c_0 + c_1x^3y + c_1xy^3 + c_1 c_2xy
-\end{align*}
-What relationships connecting the constants (a's, b's, and c's) make the foregoing expressions possible?
-
-There are 6 compatibility equations that must be satisfied since 6 strains cannot be arbitrarily chosen. Assuming the strains involving $z$ are zero, 
-there is only one compatibility equation that must be satisfied:
-
-\begin{align}
-    2 \frac{\partial^2 \epsilon_{xy}}{\partial x \partial y} &= \frac{\partial^2 \epsilon_{x}}{\partial y^2} + \frac{\partial^2 \epsilon_{y}}{\partial x^2} \label{eq:q4compatability}
-\end{align}
-
-Evaluating the partial derivatives:
-\begin{align*}
-    \frac{\partial^2 \epsilon_{xy}}{\partial x \partial y} &= \frac{1}{2}\frac{\partial}{\partial x} (c_1x^3 + 3c_1xy^2 + c_1c_2x) \\
-    &= \frac{1}{2}(3c_1x^2 + 3c_1y^2 + c_1c_2) \\
-    \frac{\partial^2 \epsilon_{x}}{\partial y^2} &= 2a_1 + 12y^2 \\
-    \frac{\partial^2 \epsilon_{y}}{\partial x^2} &= 2b_1 + 12x^2
+    K &= \frac{E}{3(1-2\nu)} \\
+    &= \frac{70}{3(1-2(0.3))} \\
+    &= \qty{58.333}{\giga\pascal}
 \end{align*}
 
-Substituting into (\ref{eq:q4compatability}):
+By definition of bulk modulus, we have:
 \begin{align*}
-    3c_1x^2 + 3c_1y^2 + c_1c_2 &= 2a_1 + 12y^2 + 2b_1 + 12x^2 \\
-    3c_1x^2 + 3c_1y^2 + c_1c_2 - 12x^2 - 12y^2 &= 2a_1 + 2b_1 \\
-    3c_1x^2 - 12x^2 + 3c_1y^2 - 12y^2 + c_1c_2 &= 2a_1 + 2b_1 \\
-    (3c_1 - 12)x^2 + (3c_1 - 12)y^2 + c_1c_2 &= 2a_1 + 2b_1 \\
-    \underbrace{(3c_1 - 12)(x^2+y^2)}_{\text{function of x, y}} &= \underbrace{2a_1 + 2b_1 - c_1c_2}_{\text{constant}} \overset{\text{set}}{=} 0 \\
-\end{align*}
-\vspace{-1cm}
-\begin{align*}
-    &\implies     3c_1 - 12 = 0 \\
-    &\implies     c_2 = \frac{2}{c_1}(a_1 + b_1)
+    \frac{\Delta V}{V} &= -\frac{p}{K} \\
+    \Delta V &= -\frac{p}{K}V \\
+    &= -\frac{160}{58.333\times 10^3} \times \frac{4}{3}\pi (250/2)^3 \\
+    &= -\qty{22439.9}{\milli\meter^3} \\
+    &= \boxed{\qty{-2.24e4}{\milli\meter^3}}
 \end{align*}
 
-Therefore, the relationship between the constants is
-\begin{empheq}[box=\widefbox]{align*}
-    c_1 &= 4 \\
-    c_2 &= \frac{1}{2} (a_1 + b_1)
-\end{empheq}
+The new volume is:
+\begin{align*}
+    V_{\text{new}} &= V + \Delta V \\
+    &= \frac{4}{3}\pi (250/2)^3 - 2.24e4 \\
+    &= \boxed{\qty{8.158790e6}{\milli\meter^3}}
+\end{align*}
 
+The new radius is:
+\begin{align*}
+    r_{\text{new}} &= \sqrt[3]{\frac{3V_{\text{new}}}{4\pi}} \\
+    &= \boxed{\qty{124.8856}{\milli\meter}}
+\end{align*}
 
-
+The decrease in circumference is:
+\begin{align*}
+    \Delta C &= 2\pi(r_{\text{new}} - r) \\
+    &= 2\pi(124.8856 - 125) \\
+    &= \boxed{\qty{-0.719}{\milli\meter}}
+\end{align*}
 
 
 

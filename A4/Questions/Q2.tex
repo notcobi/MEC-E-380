@@ -1,66 +1,99 @@
 \section{}
-The state of stress at a point in a member relative to an x, y, and z coordinate system is given by
-\begin{align*}
-    \sigma &=
-    \begin{bmatrix}
-        -100 & 0 & -80 \\
-        0 & 20 & 0 \\
-        -80 & 0 & 20 
-    \end{bmatrix}
-    \unit{MPa}
-\end{align*}
+
+% A 3 m × 2 m thin rectangular plate is deformed by the movement of point B to B′ as shown by the
+% dashed lines in Fig. 2. Assuming a displacement field of the form u = c1xy and v = c2xy where c1
+% and c2 are constants, determine,
+% (a) expressions for displacements u and v.
+% (b) strain components εx, εy, and γxy at point B.
+% (c) the normal strain εx′ in the direction of QB.
+% Verify that the strain field is possible.
+
+A $\qty{3}{\meter} \times \qty{2}{\meter}$ thin rectangular plate is deformed by the movement of point $B$ to $B'$ as shown by the dashed lines 
+in Fig. \ref{fig:Q2}. Assuming a displacement field of the form $u = c_1xy$ and $v = c_2xy$ where $c_1$ and $c_2$ are constants, determine,
 
 \begin{enumerate}[label=(\alph*)]
-    \item The principal stresses by expansion of the characteristic stress determinant.
-    \item The octahedral stresses and the maximum shearing stress.
+    \item Expressions for displacements $u$ and $v$.
+    \item Strain components $\epsilon_x$, $\epsilon_y$, and $\gamma_{xy}$ at point $B$.
+    \item The normal strain $\epsilon_{x'}$ in the direction of $\overline{QB}$.
 \end{enumerate}
 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Questions/Figures/Q2ProblemDiagram.png}
+    \caption{Stress distribution on a thin rectangular plate.}
+    \label{fig:Q2}
+\end{figure}
+
 \subsection{}
-The characteristic polynomial is given by:
+Using the geometry of the problem, the constants $c_1$ and $c_2$ can be determined. First, $c_1$:
 \begin{align*}
-    \sigma_p^3 - I_1 \sigma_p^2 + I_2 \sigma_p - I_3 &= 0 \\
-\end{align*}
-where $I_1$, $I_2$, and $I_3$ are the first, second, and third invariants, respectively. The invariants are given by:
-\begin{align*}
-    I_1 &= \sigma_{x} + \sigma_{y} + \sigma_{z}  = -60 \\
-    I_2 &= \sigma_{x}\sigma_{y} + \sigma_{y}\sigma_{z} + \sigma_{z}\sigma_{x} - \tau_{xy}^2 - \tau_{yz}^2 - \tau_{zx}^2 = \tr(\det(\sigma)\sigma^{-1}) = -10000 \\ 
-    I_3 &= \det(\sigma) = -168000
+    u &= c_1xy \\
+    c_1 &= \frac{u}{xy} \\
+    &= \frac{3}{2\times3\times 10^{6}} \\
+    %&= 5\times10^{-7}
+    &= \qty{5e-7}{\milli\meter^{-1}}
 \end{align*}
 
-Plugging into calculator, the eigenvalues are:
-\begin{empheq}[box=\widefbox]{align*}
-    \sigma_p = 
-    \begin{bmatrix}
-        -140 & 0 & 0 \\
-        0 & 60 & 0 \\
-        0 & 0 & 20
-    \end{bmatrix}
-    \unit{MPa}
+Similarly, $c_2$ is given by:
+\begin{align*}
+    v &= c_2xy \\
+    c_2 &= \frac{v}{xy} \\
+    &= \frac{1.5}{2\times3\times 10^{6}} \\
+    %&= 2.5\times10^{-7}
+    &= \qty{2.5e-7}{\milli\meter^{-1}}
+\end{align*}
+
+Therefore the expressions for $u$ and $v$ are given by:
+\begin{empheq}[box=\fbox]{align*}
+    u &= 5\times10^{-7}xy \;\text{[mm]}\\
+    v &= 2.5\times10^{-7}xy \;\text{[mm]}
 \end{empheq}
 
 \subsection{}
-The octahedral stresses are given by:
+The strain components $\epsilon_x$, $\epsilon_y$, and $\gamma_{xy}$ at point $B$ are given by:
 \begin{align*}
-    \sigma_{oct} &= \frac{1}{3}(\sigma_{p, 1} + \sigma_{p, 2} + \sigma_{p, 3}) \\
-    &= \frac{1}{3}(-140 + 60 + 20) \\
-    &= \boxed{\qty{-20}{\mega\pascal}}
+    \epsilon_x|_B &= \frac{\partial u}{\partial x}|_B = 5\times10^{-7}y|_B = 5 \times 10^{-7} \times 2000  = \boxed{\qty{1.00e-3}{}} \\
+    \epsilon_y|_B &= \frac{\partial v}{\partial y}|_B = 2.5\times10^{-7}x|_B = 2.5 \times 10^{-7} \times 3000  = \boxed{\qty{7.50e-4}{}} \\
+    \gamma_{xy}|_B &= \frac{\partial u}{\partial y} + \frac{\partial v}{\partial x}|_B = 5\times10^{-7}x+ 2.5\times10^{-7}y |_B \\
+    &= 5\times10^{-7}\times3000+ 2.5\times10^{-7}\times2000 = \boxed{\qty{2.00e-3}{}}
 \end{align*}
 
-The magnitude of the octohedral shear stress is given by:
+\subsection{}
+Recall that the normal strain $\epsilon_{x'}$ in the direction of $\overline{QB}$ is given by:
+\begin{equation*}
+    \epsilon_{x'} = \epsilon_x\cos^2\theta + \epsilon_y\sin^2\theta + 2\gamma_{xy}\sin\theta\cos\theta
+\end{equation*}
+
 \begin{align*}
-    \tau_{oct} &= \sqrt{\frac{(\sigma_{p, 1} - \sigma_{p, 2})^2 + (\sigma_{p, 2} - \sigma_{p, 3})^2 + (\sigma_{p, 3} - \sigma_{p, 1})^2}{9}} \\
-    &= \sqrt{\frac{(-140 - 60)^2 + (60 - 20)^2 + (20 + 140)^2}{9}} \\
-    &= \boxed{\qty{86.41}{\mega\pascal}}
+    \theta &= \tan^{-1}\left(\frac{\overline{BC}}{\overline{QC}}\right) \\
+    &= \tan^{-1}\left(\frac{2000}{3000}\right) \\
+    &= \ang{33.69} \\
 \end{align*}
 
-The maximum shearing stress is given by:
+Therefore, by substitution,
 \begin{align*}
-    \tau_{max} &= \frac{\sigma_{p, 2} - \sigma_{p, 1}}{2} \\
-    &= \frac{60 - (-140)}{2} \\
-    &= \boxed{\qty{100}{\mega\pascal}}
+    \epsilon_{x'} &= \epsilon_x\cos^2\theta + \epsilon_y\sin^2\theta + 2\gamma_{xy}\sin\theta\cos\theta \\
+    &= \qty{1.00e-3}\cos^2(33.69) + \qty{7.50e-4}\sin^2(33.69) + 2\qty{2.00e-3}\sin(33.69)\cos(33.69) \\
+    &= \boxed{\qty{1.85e-3}{}}
 \end{align*}
 
+\subsection{}
+The relevant compatibility equation for field is given by:
+\begin{align*}
+    2 \frac{\partial^2 \epsilon_{xy}}{\partial x \partial y} &= \frac{\partial^2 \epsilon_{x}}{\partial y^2} + \frac{\partial^2 \epsilon_{y}}{\partial x^2} \\
+\end{align*}
 
+The left hand side evaluates to:
+\begin{align*}
+    \frac{\partial^2 \gamma_{xy}}{\partial x \partial y} &= \frac{\partial^2}{\partial x \partial y}(5\times10^{-7}x + 2.5\times10^{-7}y) \\
+    &= 0
+\end{align*}
 
+The right hand side evaluates to:
+\begin{align*}
+    \frac{\partial^2 \epsilon_{x}}{\partial y^2} + \frac{\partial^2 \epsilon_{y}}{\partial x^2} &= \frac{\partial }{\partial y}(5\times 10^{-7}y) + \frac{\partial }{\partial x} (2.5\times 10^{-7}x) \\
+    &= 0 + 0
+\end{align*}
 
-
+$\boxed{\text{Therefore, the compatibility equation is satisfied and the strain field is possible.}}$
