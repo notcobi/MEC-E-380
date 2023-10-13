@@ -1,0 +1,84 @@
+\section{}The distribution of stress in an aluminum machine component is given by:
+\[
+\sigma = 
+\begin{bmatrix}
+    \sigma_x & \tau_{xy} & \tau_{xz} \\
+    \tau_{yx} & \sigma_y & \tau_{yz} \\
+    \tau_{zx} & \tau_{zy} & \sigma_z
+\end{bmatrix}
+=
+\begin{bmatrix}
+    y + 2z^2 & 3z^2 & 2y^2 \\
+    3z^2 & x + z & x^2 \\
+    2y^2 & x^2 & 3x + y
+\end{bmatrix}
+\si{\mega\pascal}
+\]
+
+Calculate the state of strain of a point positioned at $(1, 2, 4)$. Use $E = \qty{70}{GPa}$ and $\nu = 0.3$.
+
+\textbf{Solution}
+
+From the generalized Hooke's law, the stress-strain relation is given by:
+\[
+\begin{aligned}
+    \epsilon_x &= \frac{1}{E} (\sigma_x - \nu(\sigma_y + \sigma_z)) \\
+    \epsilon_y &= \frac{1}{E} (\sigma_y - \nu(\sigma_x + \sigma_z)) \\
+    \epsilon_z &= \frac{1}{E} (\sigma_z - \nu(\sigma_x + \sigma_y)) \\
+    \gamma_{xy} &= \frac{1}{2G} \tau_{xy} \\
+    \gamma_{yz} &= \frac{1}{2G} \tau_{yz} \\
+    \gamma_{xz} &= \frac{1}{2G} \tau_{xz}
+\end{aligned}
+\]
+
+Where 
+\[
+\begin{aligned}
+    G &= \frac{E}{2(1 + \nu)}
+    &= \frac{70}{2(1 + 0.3)}
+    &= \qty{26.923}{GPa}
+\end{aligned}
+\]
+
+Evaluate the stress state at $(1, 2, 4)$:
+\[
+\begin{aligned}
+    \sigma &= 
+    \begin{bmatrix}
+        2 + 2(4)^2 & 3(4)^2 & 2(2)^2 \\
+        3(4)^2 & 1 + 4 & 1^2 \\
+        2(2)^2 & 1^2 & 3(1) + 2
+    \end{bmatrix}
+    &=
+    \begin{bmatrix}
+        34 & 48 & 8 \\
+        48 & 5 & 1 \\
+        8 & 1 & 5
+    \end{bmatrix}
+    \si{\mega\pascal}
+\end{aligned}
+\]
+
+Using the stress-strain relations, the strain state is given by:
+\[
+\begin{aligned}
+    \epsilon &=
+    \begin{bmatrix}
+        \frac{1}{E} (\sigma_x - \nu(\sigma_y + \sigma_z)) & \frac{1}{2G} \tau_{xy} & \frac{1}{2G} \tau_{xz} \\
+        \frac{1}{2G} \tau_{yx} & \frac{1}{E} (\sigma_y - \nu(\sigma_x + \sigma_z)) & \frac{1}{2G} \tau_{yz} \\
+        \frac{1}{2G} \tau_{zx} & \frac{1}{2G} \tau_{zy} & \frac{1}{E} (\sigma_z - \nu(\sigma_x + \sigma_y))
+    \end{bmatrix} \\
+    &=
+    \begin{bmatrix}
+        \frac{1}{70\times 10^3} (34 - 0.3(5 + 5)) & \frac{1}{2(26.923)\times 10^3} 48 & \frac{1}{2(26.923)\times 10^3} 8 \\
+        \frac{1}{2(26.923)\times 10^3} 48 & \frac{1}{70\times 10^3} (5 - 0.3(34 + 5)) & \frac{1}{2(26.923)\times 10^3} 1 \\
+        \frac{1}{2(26.923)\times 10^3} 8 & \frac{1}{2(26.923)\times 10^3} 1 & \frac{1}{70\times 10^3} (5 - 0.3(34 + 5))
+    \end{bmatrix} \\
+    &=
+    \begin{bmatrix}
+        4.43 \times 10^{-4} & 8.91 \times 10^{-4} & 1.49 \times 10^{-4} \\
+        8.91 \times 10^{-4} & -9.57 \times 10^{-5} & 1.86 \times 10^{-5} \\
+        1.49 \times 10^{-4} & 1.86 \times 10^{-5} & -9.57 \times 10^{-5}
+    \end{bmatrix}
+\end{aligned}
+\]

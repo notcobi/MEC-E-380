@@ -1,0 +1,50 @@
+\section{}
+A solid sphere of diameter $d$ experiences a uniform pressure of $p$. Given: $d = \qty{250}{\milli\meter}$, 
+$p = \qty{160}{\mega\pascal}$, $E = \qty{70}{\giga\pascal}$, and $\nu = 0.3$. Determine,
+
+\begin{enumerate}[label=(\alph*)]
+    \item the decrease in volume of the sphere $\Delta V$.
+    \item the decrease in circumference of the sphere.
+\end{enumerate}
+
+Note: Volume of a sphere is $V = \frac{4}{3}\pi r^3$, where $r = \frac{d}{2}$.
+
+
+Bulk modulus will be used to find the change in volume of the sphere. The bulk modulus is given by:
+\begin{align*}
+    K &= \frac{E}{3(1-2\nu)} \\
+    &= \frac{70}{3(1-2(0.3))} \\
+    &= \qty{58.333}{\giga\pascal}
+\end{align*}
+
+By definition of bulk modulus, we have:
+\begin{align*}
+    \frac{\Delta V}{V} &= -\frac{p}{K} \\
+    \Delta V &= -\frac{p}{K}V \\
+    &= -\frac{160}{58.333\times 10^3} \times \frac{4}{3}\pi (250/2)^3 \\
+    &= -\qty{22439.9}{\milli\meter^3} \\
+    &= \boxed{\qty{-2.24e4}{\milli\meter^3}}
+\end{align*}
+
+The new volume is:
+\begin{align*}
+    V_{\text{new}} &= V + \Delta V \\
+    &= \frac{4}{3}\pi (250/2)^3 - 2.24e4 \\
+    &= \boxed{\qty{8.158790e6}{\milli\meter^3}}
+\end{align*}
+
+The new radius is:
+\begin{align*}
+    r_{\text{new}} &= \sqrt[3]{\frac{3V_{\text{new}}}{4\pi}} \\
+    &= \boxed{\qty{124.8856}{\milli\meter}}
+\end{align*}
+
+The decrease in circumference is:
+\begin{align*}
+    \Delta C &= 2\pi(r_{\text{new}} - r) \\
+    &= 2\pi(124.8856 - 125) \\
+    &= \boxed{\qty{-0.719}{\milli\meter}}
+\end{align*}
+
+
+
