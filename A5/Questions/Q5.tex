@@ -1,50 +1,134 @@
 \section{}
-A solid sphere of diameter $d$ experiences a uniform pressure of $p$. Given: $d = \qty{250}{\milli\meter}$, 
-$p = \qty{160}{\mega\pascal}$, $E = \qty{70}{\giga\pascal}$, and $\nu = 0.3$. Determine,
+A uniform bar of rectangular cross section $2h \times b$ and specific weight $\gamma$ hangs in the vertical plane
+as shown in Fig. \ref{fig:Q5}. Its weight results in displacements shown below. Demonstrate whether
+this solution satisfies the 15 equations of elasticity and the boundary conditions.
 
-\begin{enumerate}[label=(\alph*)]
-    \item the decrease in volume of the sphere $\Delta V$.
-    \item the decrease in circumference of the sphere.
-\end{enumerate}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Questions/Figures/Q5ProblemDiagram.png}
+    \caption{Uniform rectangular bar.}
+    \label{fig:Q5}
+\end{figure}
 
-Note: Volume of a sphere is $V = \frac{4}{3}\pi r^3$, where $r = \frac{d}{2}$.
-
-
-Bulk modulus will be used to find the change in volume of the sphere. The bulk modulus is given by:
 \begin{align*}
-    K &= \frac{E}{3(1-2\nu)} \\
-    &= \frac{70}{3(1-2(0.3))} \\
-    &= \qty{58.333}{\giga\pascal}
+    u &= \frac{-\nu\gamma}{E} xz \\
+    v &= \frac{-\nu\gamma}{E} yz \\
+    w &= \frac{\gamma}{2E} \left[\frac{z^2 - a^2) + \nu(x^2 + y^2)}{2}\right]
 \end{align*}
 
-By definition of bulk modulus, we have:
-\begin{align*}
-    \frac{\Delta V}{V} &= -\frac{p}{K} \\
-    \Delta V &= -\frac{p}{K}V \\
-    &= -\frac{160}{58.333\times 10^3} \times \frac{4}{3}\pi (250/2)^3 \\
-    &= -\qty{22439.9}{\milli\meter^3} \\
-    &= \boxed{\qty{-2.24e4}{\milli\meter^3}}
-\end{align*}
+\textbf{Solution}
+First calculate the strains from the displacements (6 equations):
+\[
+\begin{aligned}
+    \epsilon_x &= \frac{\partial u}{\partial x} = \frac{-\nu\gamma}{E} z \\
+    \epsilon_y &= \frac{\partial v}{\partial y} = \frac{-\nu\gamma}{E} z \\
+    \epsilon_z &= \frac{\partial w}{\partial z} = \frac{\gamma}{E} z \\
+    \gamma_{xy} &= \frac{\partial u}{\partial y} + \frac{\partial v}{\partial x} = 0 \\
+    \gamma_{yz} &= \frac{\partial v}{\partial z} + \frac{\partial w}{\partial y} = 0 \\
+    \gamma_{xz} &= \frac{\partial u}{\partial z} + \frac{\partial w}{\partial x} = 0 \\\
+\end{aligned}
+\]
 
-The new volume is:
-\begin{align*}
-    V_{\text{new}} &= V + \Delta V \\
-    &= \frac{4}{3}\pi (250/2)^3 - 2.24e4 \\
-    &= \boxed{\qty{8.158790e6}{\milli\meter^3}}
-\end{align*}
+Next, check compatibility (6 equations):
+\[
+\begin{aligned}
+    \frac{\partial^2 \gamma_{xy}}{\partial x \partial y} &= \frac{\partial^2 \epsilon_x}{\partial y^2} + \frac{\partial^2 \epsilon_y}{\partial x^2} \\
+    \frac{\partial^2}{\partial x \partial y} 0 &= \frac{\partial^2}{\partial y^2} \frac{-\nu\gamma}{E} z + \frac{\partial^2}{\partial x^2} \frac{-\nu\gamma}{E} z \\
+    0 &= 0 + 0 \\
+\end{aligned}
+\]
 
-The new radius is:
-\begin{align*}
-    r_{\text{new}} &= \sqrt[3]{\frac{3V_{\text{new}}}{4\pi}} \\
-    &= \boxed{\qty{124.8856}{\milli\meter}}
-\end{align*}
+\[
+\begin{aligned}
+    \frac{\partial^2 \gamma_{xz}}{\partial x \partial z} &= \frac{\partial^2 \epsilon_x}{\partial z^2} + \frac{\partial^2 \epsilon_z}{\partial x^2} \\
+    \frac{\partial^2}{\partial x \partial z} 0 &= \frac{\partial^2}{\partial z^2} \frac{-\nu\gamma}{E} z + \frac{\partial^2}{\partial x^2} \frac{\gamma}{E} z \\
+    0 &= 0 + 0 \\
+\end{aligned}
+\]  
 
-The decrease in circumference is:
-\begin{align*}
-    \Delta C &= 2\pi(r_{\text{new}} - r) \\
-    &= 2\pi(124.8856 - 125) \\
-    &= \boxed{\qty{-0.719}{\milli\meter}}
-\end{align*}
+\[
+\begin{aligned}
+    \frac{\partial^2 \gamma_{yz}}{\partial y \partial z} &= \frac{\partial^2 \epsilon_y}{\partial z^2} + \frac{\partial^2 \epsilon_z}{\partial y^2} \\
+    \frac{\partial^2}{\partial y \partial z} 0 &= \frac{\partial^2}{\partial z^2} \frac{-\nu\gamma}{E} z + \frac{\partial^2}{\partial y^2} \frac{\gamma}{E} z \\
+    0 &= 0 + 0 \\
+\end{aligned}
+\]
 
+\[
+\begin{aligned}
+    \frac{\partial}{\partial x} \left(\frac{\partial \epsilon_xy}{\partial z}  + \frac{\partial \epsilon_xz}{\partial y} - 
+    \frac{\partial \epsilon_yz}{\partial x}\right) &= \frac{\partial^2 \epsilon_x}{\partial y \partial z}\\
+    \frac{\partial}{\partial x} \left(\frac{\partial}{\partial z} 0  + \frac{\partial}{\partial y} 0 - 
+    \frac{\partial}{\partial x} 0\right) &= \frac{\partial^2}{\partial y \partial z} \frac{-\nu\gamma}{E} z \\
+    0 &= 0 \\
+\end{aligned}
+\]
 
+\[
+\begin{aligned}
+    \frac{\partial}{\partial y} \left(\frac{\partial \epsilon_xy}{\partial z}  + \frac{\partial \epsilon_xz}{\partial y} - 
+    \frac{\partial \epsilon_yz}{\partial x}\right) &= \frac{\partial^2 \epsilon_y}{\partial x \partial z}\\
+    \frac{\partial}{\partial y} \left(\frac{\partial}{\partial z} 0  + \frac{\partial}{\partial y} 0 - 
+    \frac{\partial}{\partial x} 0\right) &= \frac{\partial^2}{\partial x \partial z} \frac{-\nu\gamma}{E} z \\
+    0 &= 0 \\
+\end{aligned}
+\]
 
+\[
+\begin{aligned}
+    \frac{\partial}{\partial z} \left(\frac{\partial \epsilon_xy}{\partial z}  + \frac{\partial \epsilon_xz}{\partial y} - 
+    \frac{\partial \epsilon_yz}{\partial x}\right) &= \frac{\partial^2 \epsilon_z}{\partial x \partial y}\\
+    \frac{\partial}{\partial z} \left(\frac{\partial}{\partial z} 0  + \frac{\partial}{\partial y} 0 - 
+    \frac{\partial}{\partial x} 0\right) &= \frac{\partial^2}{\partial x \partial y} \frac{\gamma}{E} z \\
+    0 &= 0 \\
+\end{aligned}
+\]
+
+Finally, check equilibrium (3 equations):
+\[
+\begin{aligned}
+    \frac{\partial \sigma_{x}}{\partial x} + \frac{\partial \tau_{xy}}{\partial y} + \frac{\partial \tau_{xz}}{\partial z} + F_x &= 0 \\
+    \frac{\partial \tau_{yx}}{\partial x} + \frac{\partial \sigma_{y}}{\partial y} + \frac{\partial \tau_{yz}}{\partial z} + F_y &= 0 \\
+    \frac{\partial \tau_{zx}}{\partial x} + \frac{\partial \tau_{zy}}{\partial y} + \frac{\partial \sigma_{z}}{\partial z} + F_z &= 0 \\
+\end{aligned}
+\]
+
+Using Lame's equations,
+\[
+\begin{aligned}
+    \lambda &=  \frac{E\nu}{(1 + \nu)(1 - 2\nu)} \\
+    e &= \epsilon_x + \epsilon_y + \epsilon_z \\
+    &= \frac{-\nu\gamma}{E} z + \frac{-\nu\gamma}{E} z + \frac{\gamma}{E} z \\
+    &= \frac{z\gamma}{E} (1 - 2\nu) \\
+\end{aligned}
+\]
+
+Also note since shear strains are zero, $\tau_{xy} = \tau_{xz} = \tau_{yz} = 0$ by the relation $\tau = G\gamma$. Also there 
+are no body forces, $F_x = F_y = F_z = 0$.
+The equilibrium equations reduce:
+\[
+\begin{aligned}
+    \frac{\partial \sigma_{x}}{\partial x} &= \\
+    0 &= \frac{\partial}{\partial x} (2G \epsilon_x + \lambda e) \\
+    0 &= \frac{\partial}{\partial x} (2G \frac{-\nu\gamma}{E} z + \lambda \frac{z\gamma}{E} (1 - 2\nu)) \\
+    0 &= 0 \\
+\end{aligned}
+\]
+
+\[
+\begin{aligned}
+    \frac{\partial \sigma_{y}}{\partial y} &=  \\
+    0 &= \frac{\partial}{\partial y} (2G \epsilon_y + \lambda e)  \\
+    0 &= \frac{\partial}{\partial y} (2G \frac{-\nu\gamma}{E} z + \lambda \frac{z\gamma}{E} (1 - 2\nu)) \\
+    0 &= 0 \\
+\end{aligned}
+\]
+
+\[
+\begin{aligned}
+    \frac{\partial \sigma_{z}}{\partial z} &=  \\
+    0 &= \frac{\partial}{\partial z} (2G \epsilon_z + \lambda e)  \\
+    0 &= \frac{\partial}{\partial z} (2G \frac{\gamma}{E} z +  \frac{z\gamma}{E} (1 - 2\nu)) \\
+    0 &= 0 \\
+\end{aligned}
+\]
