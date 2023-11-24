@@ -1,0 +1,143 @@
+\section*{3. Problems in Elasticity}
+\subsection*{8.1. General Procedure}
+% to do later
+% \begin{enumerate}
+%     \item Find fluid properties from Appendix 1 at bulk mean temperature $T_b = (T_i + T_e)/2$
+%     \begin{itemize}
+%         \item $\rho$, $\mu$, $k$, $c_p$, $Pr$, $\nu$
+%     \end{itemize}
+%     \item Determine mean velocity $V_{\text{avg}}$
+%     \item Determine the type of flow (laminar or turbulent)
+%     \begin{itemize}
+%         \item Laminar: Re $< 2300$
+%         \item Turbulent: Re $> 4000$
+%     \end{itemize}
+%     \item Determine the Nusselt number, Nu, using the appropriate correlation
+%     \begin{itemize}
+%         \item Check if $l_{h, \text{laminar}}$ and $l_{t, \text{laminar}}$ is less than $L$. If so, use Table \ref{tab:sec8_fully_developed_laminar} 
+%         \item Else, use empirical correlations
+%     \end{itemize}
+%     \item Determine the heat transfer coefficient $h$ using $Nu$, $k$, and $A_s$
+% \end{enumerate}
+
+% % Add this to a glossary section later
+% \subsection*{8.2. Variable Definitions}
+% \begin{itemize}
+%     \item Nu: Nusselt number
+%     \item Re: Reynolds number
+%     \item Pr: Prandtl number
+%     \item $\mu$: Dynamic viscosity
+%     \item $\nu$: Kinematic viscosity
+%     \item $k$: Thermal conductivity
+%     \item $h$: Convection heat transfer coefficient
+%     \item $D_h$: Hydraulic diameter
+%     \item $A_s$: Surface area
+%     \item $A_c$: Cross-sectional area
+%     \item $V_{\text{avg}}$: Average velocity
+%     \item $T_b$: Bulk mean temperature
+%     \item $T_i$: Inlet temperature
+%     \item $T_e$: Exit temperature
+%     \item $\dot{m}$: Mass flow rate
+%     \item $\dot{q}$: Heat flux 
+%     \item $\Delta T_{\text{lm}}$: Log mean temperature difference   
+% \end{itemize}
+
+\subsection*{8.2. Formulas}
+\subsection*{Plane Strain}
+On the plane $x$-$y$, the equilibrium and compatibility equations are
+\begin{gather*}
+    \frac{\partial \sigma_x}{\partial x} + \frac{\partial \tau_{xy}}{\partial y} = 0 \\
+    \frac{\partial \sigma_y}{\partial y} + \frac{\partial \tau_{xy}}{\partial x} = 0
+    \frac{\partial^2 \sigma_x}{\partial y^2} + \frac{\partial^2 \sigma_y}{\partial x^2} = \frac{\partial^2 \gamma_{xy}}{\partial x \partial y} \\
+    \implies \left(\frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2}\right) (\sigma_x + \sigma_y) = 0
+\end{gather*}
+Strain-stress relations are
+\begin{align*}
+    \epsilon_x &= \frac{1}{E} \left( \sigma_x - \nu \sigma_y \right) \\
+    \epsilon_y &= \frac{1}{E} \left( \sigma_y - \nu \sigma_x \right) \\
+    \epsilon_z &= -\frac{\nu}{E} \left( \sigma_x + \sigma_y \right) \\
+    \gamma_{xy} &= \frac{\tau_{xy}}{G} \\
+    \gamma_{xz} &= \gamma_{yz} = 0 
+\end{align*}
+Stress-strain relations are
+\begin{align*}
+    \sigma_x &= \frac{E}{1-\nu^2} \left( \epsilon_x + \nu \epsilon_y \right) \\
+    \sigma_y &= \frac{E}{1-\nu^2} \left( \epsilon_y + \nu \epsilon_x \right) \\
+    \tau_{xy} &= G \gamma_{xy} \\
+    \sigma_z &= -\frac{\nu}{1-\nu} \left( \epsilon_x + \epsilon_y \right)
+\end{align*}
+Airy's stress function $\Phi$ relations
+\begin{gather*}
+    \nabla^4 \Phi = \frac{\partial^4 \Phi}{\partial x^4} + 2 \frac{\partial^4 \Phi}{\partial x^2 \partial y^2} + \frac{\partial^4 \Phi}{\partial y^4} = 0\\
+    \sigma_x = \frac{\partial^2 \Phi}{\partial y^2}, \quad \sigma_y = \frac{\partial^2 \Phi}{\partial x^2}, \quad \tau_{xy} = -\frac{\partial^2 \Phi}{\partial x \partial y}
+\end{gather*}
+\subsection*{Thermalelasticity}
+Thermal strain, $\epsilon{t} = \alpha T$, relations by superposition,
+\begin{align*}
+    \epsilon_x &= \frac{1}{E} \left( \sigma_x - \nu \sigma_y \right) + \alpha T \\
+    \epsilon_y &= \frac{1}{E} \left( \sigma_y - \nu \sigma_x \right) + \alpha T \\
+    \epsilon_z &= -\frac{\nu}{E} \left( \sigma_x + \sigma_y \right) + \alpha T \\
+    \gamma_{xy} &= \frac{\tau_{xy}}{G} \\
+\end{align*}
+Thermal stress relations,
+\begin{align*}
+    \sigma_x &= \frac{E}{1-\nu^2} \left( \epsilon_x + \nu \epsilon_y \right) - \frac{E\alpha T}{1-\nu} \\
+    \sigma_y &= \frac{E}{1-\nu^2} \left( \epsilon_y + \nu \epsilon_x \right) - \frac{E\alpha T}{1-\nu} \\
+    \sigma_z &= -\frac{\nu}{1-\nu} \left( \epsilon_x + \epsilon_y \right) - \frac{E\alpha T}{1-\nu} \\
+    \tau_{xy} &= G \gamma_{xy} \\
+\end{align*}
+Stress function $\Phi$ relations,
+\begin{align*}
+    \left(\frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} \right)(\sigma_x + \sigma_y + \alpha ET) &= 0 \\
+    \implies \nabla^4 \Phi + \alpha E \nabla^2 T &= 0 \\
+\end{align*}
+\subsection*{Polar Coordinates}
+Displacement-strain relations,
+\begin{gather*}
+    \epsilon_r = \frac{\partial u}{\partial r}, \quad \epsilon_\theta = \frac{u}{r} + \frac{1}{r} \frac{\partial v}{\partial \theta} \\
+    2\epsilon_{r\theta} = \gamma_{r\theta} = \frac{\partial v}{\partial r} - \frac{v}{r} + \frac{1}{r} \frac{\partial u}{\partial \theta}
+\end{gather*}
+Strain-stress relations for plane stress,
+\begin{gather*}
+    \epsilon_r = \frac{1}{E} \left( \sigma_r - \nu \sigma_\theta \right), \quad \epsilon_\theta = \frac{1}{E} \left( \sigma_\theta - \nu \sigma_r \right)
+    \epsilon_{r\theta} = \frac{1}{2G} \tau_{r\theta} \\
+\end{gather*}
+Airy's stress function $\Phi$ relations,
+\begin{gather*}
+    \sigma_r = \frac{1}{r}\frac{\partial \Phi}{\partial r} + \frac{1}{r^2} \frac{\partial^2 \Phi}{\partial \theta^2}, \quad \sigma_\theta = 
+    \frac{\partial^2 \Phi}{\partial r^2} \\
+    \tau_{r\theta} = \frac{1}{r^2}\frac{\partial \Phi}{\partial \theta} - \frac{1}{r}\frac{\partial^2 \Phi}{\partial r \partial \theta} = -
+    \frac{\partial}{\partial r} \left( \frac{1}{r} \frac{\partial \Phi}{\partial \theta} \right)
+\end{gather*}
+Compatibility,
+\begin{gather*}
+    \nabla^2 \Phi = \frac{\partial^2 \Phi}{\partial r^2} + \frac{1}{r} \frac{\partial \Phi}{\partial r} + \frac{1}{r^2} \frac{\partial^2 \Phi}{\partial \theta^2} \\
+    \nabla^4 \Phi = \left(\frac{\partial^2}{\partial r^2} + \frac{1}{r} \frac{\partial}{\partial r} + \frac{1}{r^2} \frac{\partial^2}{\partial \theta^2} \right) 
+    \nabla^2 \Phi=0
+\end{gather*}
+Transformation equations,
+\begin{align*}
+    \sigma_r &= \frac{1}{2}(\sigma_x + \sigma_y) + \frac{1}{2}(\sigma_x - \sigma_y) \cos{2\theta} + \tau_{xy} \sin{2\theta} \\
+    \tau_{r\theta} &= -\frac{1}{2}(\sigma_x - \sigma_y) \sin{2\theta} + \tau_{xy} \cos{2\theta} \\
+    \sigma_\theta &= \frac{1}{2}(\sigma_x + \sigma_y) - \frac{1}{2}(\sigma_x - \sigma_y) \cos{2\theta} - \tau_{xy} \sin{2\theta}\\
+    \sigma_x &= \frac{1}{2}(\sigma_\theta + \sigma_r) + \frac{1}{2}(\sigma_r - \sigma_\theta) \cos{2\theta} - \tau_{r\theta} \sin{2\theta} \\
+    \tau_{xy} &= -\frac{1}{2}(\sigma_r - \sigma_\theta) \sin{2\theta} + \tau_{r\theta} \cos{2\theta} \\
+    \sigma_y &= \frac{1}{2}(\sigma_\theta + \sigma_r) - \frac{1}{2}(\sigma_r - \sigma_\theta) \cos{2\theta} + \tau_{r\theta} \sin{2\theta}
+\end{align*}
+\subsection*{Concentrated Loads}
+Wedge of unit thickness, under load $P$, and angle $\alpha$,
+\begin{align*}
+    \sigma_{r} &= - \frac{P \cos{\theta}}{r(\alpha + \frac{1}{2}\sin{2\alpha})},\quad \sigma_{\theta} = 0, \quad \tau_{r\theta} = 0\\
+    \sigma_{x} &= \sigma_{r} \cos^2{\theta} = - \frac{P \cos^4{\theta}}{L(\alpha + \frac{1}{2}\sin{2\alpha})} \\
+    \tau_{xy} &= \frac{P\sin\theta \cos^3\theta}L(\alpha + \frac{1}{2}\sin{2\alpha}) \\
+    (\sigma_{x})_{\text{elem}} &= - \frac{P}{2L\tan{\alpha}}
+\end{align*}
+Note that the normal stress is maximum at $\theta = 0$ and minimum at $\theta = \alpha$. Shear stress is maximum at 
+$\theta = \alpha$ if $\alpha < 30^\circ$ and at $\theta = 30^\circ$ if $\alpha \geq 30^\circ$.
+
+\subsection*{Stress Concentrations}
+
+For stress concentration factor $K$,
+\begin{align*}
+    K = \frac{\sigma_{\text{max}}}{\sigma_{\text{nom}}}
+\end{align*}

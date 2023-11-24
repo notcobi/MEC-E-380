@@ -1,0 +1,46 @@
+% Formula sheet for MEC E 371 Heat Transfer
+% Two column format
+
+\documentclass[10pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{siunitx}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{lastpage}
+\usepackage[final]{hyperref}
+\usepackage{parskip}
+\usepackage{subcaption}
+
+\geometry{letterpaper, portrait, margin=0.5in, footskip=0.25in, top = 0.75in, headsep=0.25in}
+\setlength{\columnsep}{0.5in}
+
+\hypersetup{
+	colorlinks=true,       % false: boxed links; true: colored links
+	linkcolor=blue,        % color of internal links
+	citecolor=blue,        % color of links to bibliography
+	filecolor=magenta,     % color of file links
+	urlcolor=blue         
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{MEC E 371 Formula Sheet}
+\chead{Last Updated: \today}
+\rhead{Alex Diep}
+\cfoot{\thepage\ of \pageref{LastPage}}
+
+\begin{document}
+%\maketitle
+%\thispagestyle{empty}
+\begin{multicols*}{2}
+\setlength{\belowdisplayskip}{5pt} \setlength{\belowdisplayshortskip}{0pt}
+\setlength{\abovedisplayskip}{5pt} \setlength{\abovedisplayshortskip}{0pt}
+\input{quiz4.tex}
+\end{multicols*}
+\end{document}

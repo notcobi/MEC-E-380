@@ -1,0 +1,34 @@
+\section{}
+A prismatic bar is restrained in the $x$ (axial) and $y$ direction but free to expand in the $z$ direction. Determine
+the stresses and strains in the bar for a temperature rise of $T_1$ degrees.
+
+Since the bar is restrained, $\epsilon_y = \epsilon_z = 0$. From strain relations,
+\begin{align*}
+    \epsilon_x &= \frac{1}{E} \left( \sigma_x - \nu \sigma_y \right) + \alpha T_1 \overset{\text{set}}{=} 0 \\
+    \implies \sigma_x &= \nu \sigma_y - E \alpha T_1
+\end{align*}
+In the $y$ direction,
+\begin{align*}
+    \epsilon_y &= \frac{1}{E} \left( \sigma_y - \nu \sigma_x \right) + \alpha T_1 \overset{\text{set}}{=} 0 \\
+    \implies \sigma_y &= \nu \sigma_x - E \alpha T_1
+\end{align*}
+Substituting $\sigma_y$ into the $\sigma_x$ equation,
+\begin{align*}
+    \sigma_x &= -\nu \sigma_y - E \alpha T_1 \\
+    &= -\nu (\nu \sigma_x - E \alpha T_1) - E \alpha T_1 \\
+    &= -\nu^2 \sigma_x + \nu E \alpha T_1- E \alpha T_1\\
+    \implies \sigma_x &= \frac{\nu E \alpha T_1- E \alpha T}{1 + \nu^2} \\
+    &= \frac{E \alpha T}{\nu - 1}
+\end{align*}
+Since the equations for $\sigma_x$ and $\sigma_y$ are linear, by symmetry, $\sigma_x = \sigma_y$. 
+In the $z$ direction,
+\begin{align*}
+    \epsilon_z &= -\frac{\nu}{E} \left( \sigma_x + \sigma_y \right) + \alpha T_1
+    &= -\frac{\nu}{E}\frac{2E \alpha T}{\nu - 1} + \alpha T_1\\
+    &= -\frac{2\nu \alpha T}{\nu - 1} + \alpha T_1\\
+\end{align*}
+Additionally,
+\begin{align*}
+    \tau_{xy} &= \tau_{xz} = \tau_{yz} = 0 \\
+    \sigma_{z} &= 0
+\end{align*}
