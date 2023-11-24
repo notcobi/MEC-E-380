@@ -1,5 +1,5 @@
 \section*{3. Problems in Elasticity}
-\subsection*{8.1. General Procedure}
+%\subsection*{8.1. General Procedure}
 % to do later
 % \begin{enumerate}
 %     \item Find fluid properties from Appendix 1 at bulk mean temperature $T_b = (T_i + T_e)/2$
@@ -43,7 +43,7 @@
 % \end{itemize}
 
 \subsection*{8.2. Formulas}
-\subsection*{Plane Strain}
+\subsubsection*{Plane Strain}
 On the plane $x$-$y$, the equilibrium and compatibility equations are
 \begin{gather*}
     \frac{\partial \sigma_x}{\partial x} + \frac{\partial \tau_{xy}}{\partial y} = 0 \\
@@ -71,36 +71,36 @@ Airy's stress function $\Phi$ relations
     \nabla^4 \Phi = \frac{\partial^4 \Phi}{\partial x^4} + 2 \frac{\partial^4 \Phi}{\partial x^2 \partial y^2} + \frac{\partial^4 \Phi}{\partial y^4} = 0\\
     \sigma_x = \frac{\partial^2 \Phi}{\partial y^2}, \quad \sigma_y = \frac{\partial^2 \Phi}{\partial x^2}, \quad \tau_{xy} = -\frac{\partial^2 \Phi}{\partial x \partial y}
 \end{gather*}
-\subsection*{Thermalelasticity}
+\subsubsection*{Thermalelasticity}
 Thermal strain, $\epsilon{t} = \alpha T$, relations by superposition,
 \begin{align*}
     \epsilon_x &= \frac{1}{E} \left( \sigma_x - \nu \sigma_y \right) + \alpha T \\
     \epsilon_y &= \frac{1}{E} \left( \sigma_y - \nu \sigma_x \right) + \alpha T \\
     \epsilon_z &= -\frac{\nu}{E} \left( \sigma_x + \sigma_y \right) + \alpha T \\
-    \gamma_{xy} &= \frac{\tau_{xy}}{G} \\
+    \gamma_{xy} &= \frac{\tau_{xy}}{G} 
 \end{align*}
 Thermal stress relations,
 \begin{align*}
     \sigma_x &= \frac{E}{1-\nu^2} \left( \epsilon_x + \nu \epsilon_y \right) - \frac{E\alpha T}{1-\nu} \\
     \sigma_y &= \frac{E}{1-\nu^2} \left( \epsilon_y + \nu \epsilon_x \right) - \frac{E\alpha T}{1-\nu} \\
     \sigma_z &= -\frac{\nu}{1-\nu} \left( \epsilon_x + \epsilon_y \right) - \frac{E\alpha T}{1-\nu} \\
-    \tau_{xy} &= G \gamma_{xy} \\
+    \tau_{xy} &= G \gamma_{xy} 
 \end{align*}
 Stress function $\Phi$ relations,
 \begin{align*}
     \left(\frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} \right)(\sigma_x + \sigma_y + \alpha ET) &= 0 \\
-    \implies \nabla^4 \Phi + \alpha E \nabla^2 T &= 0 \\
+    \implies \nabla^4 \Phi + \alpha E \nabla^2 T &= 0 
 \end{align*}
-\subsection*{Polar Coordinates}
+\subsubsection*{Polar Coordinates}
 Displacement-strain relations,
 \begin{gather*}
     \epsilon_r = \frac{\partial u}{\partial r}, \quad \epsilon_\theta = \frac{u}{r} + \frac{1}{r} \frac{\partial v}{\partial \theta} \\
     2\epsilon_{r\theta} = \gamma_{r\theta} = \frac{\partial v}{\partial r} - \frac{v}{r} + \frac{1}{r} \frac{\partial u}{\partial \theta}
-\end{gather*}
+\end{gather*} 
 Strain-stress relations for plane stress,
 \begin{gather*}
-    \epsilon_r = \frac{1}{E} \left( \sigma_r - \nu \sigma_\theta \right), \quad \epsilon_\theta = \frac{1}{E} \left( \sigma_\theta - \nu \sigma_r \right)
-    \epsilon_{r\theta} = \frac{1}{2G} \tau_{r\theta} \\
+    \epsilon_r = \frac{1}{E} \left( \sigma_r - \nu \sigma_\theta \right), \quad \epsilon_\theta = \frac{1}{E} \left( \sigma_\theta - \nu \sigma_r \right) \\
+    \epsilon_{r\theta} = \frac{1}{2G} \tau_{r\theta} 
 \end{gather*}
 Airy's stress function $\Phi$ relations,
 \begin{gather*}
@@ -119,25 +119,48 @@ Transformation equations,
 \begin{align*}
     \sigma_r &= \frac{1}{2}(\sigma_x + \sigma_y) + \frac{1}{2}(\sigma_x - \sigma_y) \cos{2\theta} + \tau_{xy} \sin{2\theta} \\
     \tau_{r\theta} &= -\frac{1}{2}(\sigma_x - \sigma_y) \sin{2\theta} + \tau_{xy} \cos{2\theta} \\
-    \sigma_\theta &= \frac{1}{2}(\sigma_x + \sigma_y) - \frac{1}{2}(\sigma_x - \sigma_y) \cos{2\theta} - \tau_{xy} \sin{2\theta}\\
+    \sigma_\theta &= \frac{1}{2}(\sigma_x + \sigma_y) - \frac{1}{2}(\sigma_x - \sigma_y) \cos{2\theta} - \tau_{xy} \sin{2\theta}
+\end{align*}
+or 
+\begin{align*}
     \sigma_x &= \frac{1}{2}(\sigma_\theta + \sigma_r) + \frac{1}{2}(\sigma_r - \sigma_\theta) \cos{2\theta} - \tau_{r\theta} \sin{2\theta} \\
     \tau_{xy} &= -\frac{1}{2}(\sigma_r - \sigma_\theta) \sin{2\theta} + \tau_{r\theta} \cos{2\theta} \\
     \sigma_y &= \frac{1}{2}(\sigma_\theta + \sigma_r) - \frac{1}{2}(\sigma_r - \sigma_\theta) \cos{2\theta} + \tau_{r\theta} \sin{2\theta}
 \end{align*}
-\subsection*{Concentrated Loads}
+\subsubsection*{Concentrated Loads}
 Wedge of unit thickness, under load $P$, and angle $\alpha$,
 \begin{align*}
     \sigma_{r} &= - \frac{P \cos{\theta}}{r(\alpha + \frac{1}{2}\sin{2\alpha})},\quad \sigma_{\theta} = 0, \quad \tau_{r\theta} = 0\\
     \sigma_{x} &= \sigma_{r} \cos^2{\theta} = - \frac{P \cos^4{\theta}}{L(\alpha + \frac{1}{2}\sin{2\alpha})} \\
-    \tau_{xy} &= \frac{P\sin\theta \cos^3\theta}L(\alpha + \frac{1}{2}\sin{2\alpha}) \\
+    \tau_{xy} &= \frac{P\sin\theta \cos^3\theta}{L(\alpha + \frac{1}{2}\sin{2\alpha})} \\
     (\sigma_{x})_{\text{elem}} &= - \frac{P}{2L\tan{\alpha}}
 \end{align*}
 Note that the normal stress is maximum at $\theta = 0$ and minimum at $\theta = \alpha$. Shear stress is maximum at 
 $\theta = \alpha$ if $\alpha < 30^\circ$ and at $\theta = 30^\circ$ if $\alpha \geq 30^\circ$.
-
-\subsection*{Stress Concentrations}
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\linewidth]{Figures/sec3 concentrated load P.png}
+    \caption{Wedge of unit thickness under load $P$ per unit thickness}
+    \label{fig:sec3 concentrated load P}
+\end{figure}
+\subsubsection*{Stress Concentrations}
 For stress concentration factor $K$,
 \begin{align*}
     K = \frac{\sigma_{\text{max}}}{\sigma_{\text{nom}}}
 \end{align*}
+For circular hole in a large plate in tension stress $\sigma_o$,
+\begin{align*}
+    (\sigma_{\theta})_{\text{max}} &= 3 \sigma_o, \quad \theta = \pm \pi/2 \\
+    (\sigma_{\theta})_{\text{min}} &= - \sigma_o, \quad \theta = 0, \pm \pi
+\end{align*}
+For tension $\sigma_{ox}$ and $\sigma_{oy}$,
+\begin{align*}
+    (\sigma_{\theta})_{\text{max}, x} &= 3 \sigma_{ox} - \sigma_{oy}, \quad \theta = \pm \pi/2 \\
+    (\sigma_{\theta})_{\text{min}, y} &= 3 \sigma_{oy} - \sigma_{ox}, \quad \theta = 0, \pm \pi
+\end{align*}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\linewidth]{Figures/sec3 hole in large plate.png}
+    \caption{Stress concentration factor for circular hole in a large plate (10/10 figure)}
+    \label{fig:sec3 stress concentration for circular hole in large plate}
+\end{figure}
