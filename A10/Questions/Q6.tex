@@ -1,0 +1,41 @@
+\section{}
+A thin-walled circular cylindrical vessel of diameter $d$ and wall thickness $t$ is subjected to internal pressure $p$ (see Table 1.1).
+Given a small circular hole in the vessel wall, show that the maximum tangential and axial stress at the hole are $\sigma_{\theta}
+= \frac{5pd}{4t}$ and $\sigma_{a} = \frac{pd}{4t}$, respectively.
+
+From the Table 1.1
+\begin{equation*}
+    \sigma_{t} = \frac{pr}{t} = \frac{pd}{2t}, \quad \sigma_{a} = \frac{pr}{2t} = \frac{pd}{4t}
+\end{equation*}
+From the textbook,
+\begin{align*}
+    (\sigma_{\theta})_{\text{max}} &= 3 \sigma_o, \quad \theta = \pm \pi/2 \\
+    (\sigma_{\theta})_{\text{min}} &= -\sigma_o, \quad \theta = \pm \pi/2 \\
+\end{align*}
+In the $a$ direction, the maximum and minimum are
+\begin{align*}
+    (\sigma_{\theta})_{a, \text{max}} &= 3 \sigma_a \\
+    &= \frac{3pd}{4t} \\
+    (\sigma_{\theta})_{a, \text{min}} &= -\sigma_a \\
+    &= -\frac{pd}{4t}
+\end{align*}
+In the $t$ direction, the maximum and minimum are
+\begin{align*}
+    (\sigma_{\theta})_{t, \text{max}} &= 3 \sigma_{t} \\
+    &= \frac{3pd}{2t} \\
+    (\sigma_{\theta})_{t, \text{min}} &= -\sigma_{t} \\
+    &= -\frac{pd}{2t}
+\end{align*}
+Since $a$ and $t$ are offset by $90^\circ$, the maximum of $a$ adds to the minimum of $\theta$. In the 
+$a$ direction, 
+\begin{align*}
+    (\sigma_{a})_{\text{max}} &= 3 \sigma_a + (-\sigma_t) \\
+    &= \frac{3pd}{4t} - \frac{pd}{2t} \\
+    &= \boxed{\frac{pd}{4t}}
+\end{align*}
+In the $t$ direction,
+\begin{align*}
+    (\sigma_{t})_{\text{max}} &= 3 \sigma_t + (-\sigma_a) \\
+    &= \frac{3pd}{2t} - \frac{pd}{4t} \\
+    &= \boxed{\frac{5pd}{4t}}
+\end{align*}
