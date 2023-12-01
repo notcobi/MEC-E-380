@@ -1,41 +1,40 @@
 \section{}
-A thin-walled circular cylindrical vessel of diameter $d$ and wall thickness $t$ is subjected to internal pressure $p$ (see Table 1.1).
-Given a small circular hole in the vessel wall, show that the maximum tangential and axial stress at the hole are $\sigma_{\theta}
-= \frac{5pd}{4t}$ and $\sigma_{a} = \frac{pd}{4t}$, respectively.
+A simple wooden beam is under a uniform load of intensity $p$, as illustrated in Fig. \ref{fig:Q6ProblemDiagram}.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.35\linewidth]{Questions/Figures/Q6ProblemDiagram.png}
+    \caption{Problem diagram for Question 6.}
+    \label{fig:Q6ProblemDiagram}
+\end{figure}
+\begin{enumerate}[label=(\alph*)]
+    \item Find the ratio of the maximum shearing stress to the largest bending stress in terms of the
+    depth $h$ and length $L$ of the beam.
+    \item Using $\sigma_{all} = 9$ MPa, $\tau_{all} = 1.4$ MPa, $b = 50$ mm, and $h = 160$ mm, calculate the maximum
+    permissible length $L$ and the largest permissible distributed load of intensity $p$.
+\end{enumerate}
 
-From the Table 1.1
-\begin{equation*}
-    \sigma_{t} = \frac{pr}{t} = \frac{pd}{2t}, \quad \sigma_{a} = \frac{pr}{2t} = \frac{pd}{4t}
-\end{equation*}
-From the textbook,
+Like in Question 5, the shear force and bending moment are given by
 \begin{align*}
-    (\sigma_{\theta})_{\text{max}} &= 3 \sigma_o, \quad \theta = \pm \pi/2 \\
-    (\sigma_{\theta})_{\text{min}} &= -\sigma_o, \quad \theta = \pm \pi/2 \\
+    V &= \frac{pL}{2} \langle x - 0 \rangle^{0} - p \langle x - 0 \rangle^{1} \\
+    M & = \frac{pL}{2} \langle x - 0 \rangle^{1} - \frac{p}{2} \langle x - 0 \rangle^{2} \\
 \end{align*}
-In the $a$ direction, the maximum and minimum are
+
+By symmetry, the maximum bending moment occurs at the center of the beam. From inspection, the max shear force is at the supports. Then,
 \begin{align*}
-    (\sigma_{\theta})_{a, \text{max}} &= 3 \sigma_a \\
-    &= \frac{3pd}{4t} \\
-    (\sigma_{\theta})_{a, \text{min}} &= -\sigma_a \\
-    &= -\frac{pd}{4t}
+    V_{\max} &= \frac{pL}{2} \\
+    M_{\max} &= \frac{pL^2}{8}
 \end{align*}
-In the $t$ direction, the maximum and minimum are
+
+Then,
 \begin{align*}
-    (\sigma_{\theta})_{t, \text{max}} &= 3 \sigma_{t} \\
-    &= \frac{3pd}{2t} \\
-    (\sigma_{\theta})_{t, \text{min}} &= -\sigma_{t} \\
-    &= -\frac{pd}{2t}
+    \sigma_{\max} &= \frac{M_{\max} y}{I_z} = \frac{pL^2 h/2}{8 bh^3/12} \\
+    &= \frac{3pL^2}{4bh^2} \\
+    \tau_{\max} &= \frac{3V_{\max}}{2A} = \frac{3pL}{4bh} \\
+    \frac{\tau_{\max}}{\sigma_{\max}} &= \boxed{\frac{h}{L}}    
 \end{align*}
-Since $a$ and $t$ are offset by $90^\circ$, the maximum of $a$ adds to the minimum of $\theta$. In the 
-$a$ direction, 
-\begin{align*}
-    (\sigma_{a})_{\text{max}} &= 3 \sigma_a + (-\sigma_t) \\
-    &= \frac{3pd}{4t} - \frac{pd}{2t} \\
-    &= \boxed{\frac{pd}{4t}}
-\end{align*}
-In the $t$ direction,
-\begin{align*}
-    (\sigma_{t})_{\text{max}} &= 3 \sigma_t + (-\sigma_a) \\
-    &= \frac{3pd}{2t} - \frac{pd}{4t} \\
-    &= \boxed{\frac{5pd}{4t}}
-\end{align*}
+\begin{lstlisting}[language=Matlab]
+syms p L b h
+sigma_max = 3*p*L^2/(4*b*h^2);
+tau_max = 3*p*L/(4*b*h);
+ratio = tau_max/sigma_max;
+\end{lstlisting}
