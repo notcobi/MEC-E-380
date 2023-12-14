@@ -44,4 +44,24 @@ Moment to stress:
 stress is maximum at the furthest point from the neutral axis on the cross-section. For $\sigma_x$, 
 $d_y$ and $d_z$ are the signed displacements ($\pm$) from the centroid to the point of interest in the $y$ and $z$ directions.
 
-Cheesy 
+Method of integration
+\begin{align*}
+    EI \frac{d^4 v}{dx^4} &= p \\
+    EI \frac{d^3 v}{dx^3} &= -V \\ 
+    EI \frac{d^2 v}{dx^2} &= M \\
+    EI \frac{dv}{dx} &= \int M 
+\end{align*}
+also slope $\theta = dv/dx$ and deflection is $v$.
+
+Singularity functions
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{Figures/sec5 singularity.png}
+    \caption{Singularity functions}
+    \label{fig:sec5 singularity functions}
+\end{figure}
+where 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Figures/sec10 singularity.png}
+\end{figure}
