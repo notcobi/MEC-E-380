@@ -38,6 +38,7 @@
 \usepackage{enumitem}
 \usepackage{nccmath}
 \usepackage[font=footnotesize]{caption}
+\usepackage{pdfpages}
 
 \ifthenelse{\lengthtest { \paperwidth = 11in}}
     { \geometry{top=.5in,left=.5in,right=.5in,bottom=.5in} }
@@ -70,7 +71,8 @@
 \title{MEC E 331 Midterm 2 Formula Sheet}
 
 \begin{document}
-
+% \includepdf[pages=-]{properties_of_some_plane_areas.pdf}
+% \includepdf[pages=-]{elementary_formulas.pdf}
 \raggedright
 \footnotesize
 
@@ -83,7 +85,9 @@
 \setlength{\multicolsep}{1pt}
 \setlength{\columnsep}{2pt}
 
+\input{quiz3.tex}
 \input{quiz4.tex}
+\input{quiz5.tex}
 
 \end{multicols}
 

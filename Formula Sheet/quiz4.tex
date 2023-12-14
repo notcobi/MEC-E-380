@@ -1,48 +1,5 @@
 \section*{3. Problems in Elasticity}
-%\subsection*{8.1. General Procedure}
-% to do later
-% \begin{enumerate}
-%     \item Find fluid properties from Appendix 1 at bulk mean temperature $T_b = (T_i + T_e)/2$
-%     \begin{itemize}
-%         \item $\rho$, $\mu$, $k$, $c_p$, $Pr$, $\nu$
-%     \end{itemize}
-%     \item Determine mean velocity $V_{\text{avg}}$
-%     \item Determine the type of flow (laminar or turbulent)
-%     \begin{itemize}
-%         \item Laminar: Re $< 2300$
-%         \item Turbulent: Re $> 4000$
-%     \end{itemize}
-%     \item Determine the Nusselt number, Nu, using the appropriate correlation
-%     \begin{itemize}
-%         \item Check if $l_{h, \text{laminar}}$ and $l_{t, \text{laminar}}$ is less than $L$. If so, use Table \ref{tab:sec8_fully_developed_laminar} 
-%         \item Else, use empirical correlations
-%     \end{itemize}
-%     \item Determine the heat transfer coefficient $h$ using $Nu$, $k$, and $A_s$
-% \end{enumerate}
-
-% % Add this to a glossary section later
-% \subsection*{8.2. Variable Definitions}
-% \begin{itemize}
-%     \item Nu: Nusselt number
-%     \item Re: Reynolds number
-%     \item Pr: Prandtl number
-%     \item $\mu$: Dynamic viscosity
-%     \item $\nu$: Kinematic viscosity
-%     \item $k$: Thermal conductivity
-%     \item $h$: Convection heat transfer coefficient
-%     \item $D_h$: Hydraulic diameter
-%     \item $A_s$: Surface area
-%     \item $A_c$: Cross-sectional area
-%     \item $V_{\text{avg}}$: Average velocity
-%     \item $T_b$: Bulk mean temperature
-%     \item $T_i$: Inlet temperature
-%     \item $T_e$: Exit temperature
-%     \item $\dot{m}$: Mass flow rate
-%     \item $\dot{q}$: Heat flux 
-%     \item $\Delta T_{\text{lm}}$: Log mean temperature difference   
-% \end{itemize}
-
-\subsection*{8.2. Formulas}
+\subsection*{3.2. Formulas}
 \subsubsection*{Plane Strain}
 On the plane $x$-$y$, the equilibrium and compatibility equations are
 \begin{gather*}
@@ -137,12 +94,37 @@ Wedge of unit thickness, under load $P$, and angle $\alpha$,
 \end{align*}
 Note that the normal stress is maximum at $\theta = 0$ and minimum at $\theta = \alpha$. Shear stress is maximum at 
 $\theta = \alpha$ if $\alpha < 30^\circ$ and at $\theta = 30^\circ$ if $\alpha \geq 30^\circ$.
+
+If the wedge is a straight boundary, $\alpha = \pi/2$, then
+\begin{align*}
+    \sigma_r = - \frac{2P\cos\theta}{\pi r}, \quad \sigma_\theta = 0, \quad \tau_{r\theta} = 0
+\end{align*}
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.3\linewidth]{Figures/sec3 concentrated load P.png}
-    \caption{Wedge of unit thickness under load $P$ per unit thickness}
+    \includegraphics[width=0.4\linewidth]{Figures/sec3 concentrated load side.png}
+    \caption{Wedge of unit thickness under load $P$ and $F$ per unit thickness}
     \label{fig:sec3 concentrated load P}
 \end{figure}
+
+For bending of a wedge, under load $P$, and angle $\alpha$,
+\begin{align*}
+    \sigma_{r} &= -\frac{F \cos{\theta_1}}{r(\alpha - 0.5\sin(2\alpha)} = -\frac{F \sin{\theta}}{r(\alpha + 0.5\sin(2\alpha)} \\
+    \sigma_{\theta} &= \tau_{r\theta} = 0 \\
+    \sigma_x &= \sigma_r \cos^2{\theta} = -\frac{F \sin\theta \cos^2\theta}{r(\alpha + 0.5\sin(2\alpha)} \\
+    \sigma_y &= \sigma_r \sin^2{\theta} = -\frac{F \sin^3\theta}{r(\alpha + 0.5\sin(2\alpha)} \\
+    \tau_{xy} &= \sigma_r \sin\theta \cos\theta = -\frac{F \sin^2\theta \cos\theta}{r(\alpha + 0.5\sin(2\alpha)} \\
+    (\sigma_{x})_{\text{elem}} &= -\frac{F}{2r\tan\alpha}
+\end{align*}
+
+So for a combined load $P$ and $F$,
+\begin{align*}
+    \sigma_r &= -\frac{P \cos{\theta}}{r(\alpha + 0.5\sin(2\alpha)} -\frac{F \sin{\theta}}{r(\alpha + 0.5\sin(2\alpha)} \\
+    \sigma_{\theta} &= \tau_{r\theta} = 0 
+\end{align*}
+
+
 \subsubsection*{Stress Concentrations}
 For stress concentration factor $K$,
 \begin{align*}

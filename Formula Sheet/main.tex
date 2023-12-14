@@ -17,6 +17,7 @@
 \usepackage{parskip}
 \usepackage{subcaption}
 \usepackage{float}
+\usepackage{pdfpages}
 
 \geometry{letterpaper, portrait, margin=0.5in, footskip=0.25in, top = 0.75in, headsep=0.25in}
 \setlength{\columnsep}{0.5in}
@@ -39,9 +40,11 @@
 \begin{document}
 %\maketitle
 %\thispagestyle{empty}
+\includepdf[pages=-]{properties_of_some_plane_areas.pdf}
+\includepdf[pages=-]{elementary_formulas.pdf}
 \begin{multicols*}{2}
 \setlength{\belowdisplayskip}{5pt} \setlength{\belowdisplayshortskip}{0pt}
 \setlength{\abovedisplayskip}{5pt} \setlength{\abovedisplayshortskip}{0pt}
-\input{quiz4.tex}
+\input{quiz5.tex}
 \end{multicols*}
 \end{document}
